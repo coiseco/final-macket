@@ -1,17 +1,39 @@
-$bgColor: #24292e;
-$text: #fff;
+@import 'variables';
+@import 'header';
+@import 'fonts';
+@import 'main';
+@import 'main-header';
+@import 'main-content';
+@import 'slider-brands';
 
-@font-face {
-  font-family: 'Comic';
-  src: url('../fonts/comic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}
+@include font-face('TT Lakes', 'TTLakes-Regular', 400);
 
 body {
-  padding: 1rem;
-  margin: 0;
-  font-family: Comic, sans-serif;
-  background-color: $bgColor;
-  color: $text;
+  font-family: 'TT Lakes', sans-serif;
+  font-weight: 400;
+  min-width: 320px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 auto;
+  background-color: #f8f8f8;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.img {
+  background-color: #ff3e79;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
 }
