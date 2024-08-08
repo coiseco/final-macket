@@ -10,6 +10,101 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <aside class="aside-menu visible">
+      <header class="aside-header">
+        <section class="aside-header__menu aside-header-menu">
+          <button
+            type="button"
+            class="aside-header-menu__btn aside-menu__btn"
+          ></button>
+          <a class="aside-header-menu__logo-link"></a>
+          <button
+            type="button"
+            class="aside-header-menu__btn aside-menu__btn"
+          ></button>
+        </section>
+      </header>
+      <main class="aside-main">
+        <nav class="aside-main__menu aside-main-menu">
+          <ul class="aside-main-menu__list aside-menu-list">
+            <li class="aside-menu-list__item">
+              <a
+                class="aside-menu-list__link aside-menu-list__link--mod--active"
+                >Ремонт техники</a
+              >
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Услуги и сервисы</a>
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Корпоративным клиентам</a>
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Продавцам техники</a>
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Партнерам</a>
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Производителям</a>
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Наши сервисные центры</a>
+            </li>
+            <li class="aside-menu-list__item">
+              <a class="aside-menu-list__link">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </main>
+      <footer class="aside-footer">
+        <section class="aside-footer__menu aside-footer-menu">
+          <button
+            type="button"
+            class="aside-footer-menu__btn aside-menu__btn"
+          ></button>
+          <button
+            type="button"
+            class="aside-footer-menu__btn aside-menu__btn"
+          ></button>
+          <button
+            type="button"
+            class="aside-footer-menu__btn aside-menu__btn"
+          ></button>
+        </section>
+        <section class="aside-footer__contacts aside-footer-contacts">
+          <a href="mailto:mail@cps.com" class="aside-footer-contacts__link"
+            >mail@cps.com</a
+          >
+          <a href="tel:88008908900" class="aside-footer-contacts__link"
+            >8 800 890 8900</a
+          >
+        </section>
+        <form action="" method="get" class="aside-footer__language">
+          <input
+            type="radio"
+            id="RU"
+            name="footer__language-link"
+            class="aside-footer__language-link"
+          />
+          <label for="RU" class="aside-footer__language-label">RU</label>
+          <input
+            type="radio"
+            id="EN"
+            name="footer__language-link"
+            class="aside-footer__language-link"
+          />
+          <label for="EN" class="aside-footer__language-label">EN</label>
+          <input
+            type="radio"
+            id="CH"
+            name="footer__language-link"
+            class="aside-footer__language-link"
+          />
+          <label for="CH" class="aside-footer__language-label">CH</label>
+        </form>
+      </footer>
+    </aside>
     <header class="header">
       <nav class="header-menu">
         <section class="header-menu__logo-section">
@@ -283,100 +378,5 @@
         </main>
       </article>
     </main>
-    <aside class="aside-menu">
-      <header class="aside-header">
-        <section class="aside-header__menu aside-header-menu">
-          <button
-            type="button"
-            class="aside-header-menu__btn aside-menu__btn"
-          ></button>
-          <a class="aside-header-menu__logo-link"></a>
-          <button
-            type="button"
-            class="aside-header-menu__btn aside-menu__btn"
-          ></button>
-        </section>
-      </header>
-      <main class="aside-main">
-        <nav class="aside-main__menu aside-main-menu">
-          <ul class="aside-main-menu__list aside-menu-list">
-            <li class="aside-menu-list__item">
-              <a
-                class="aside-menu-list__link aside-menu-list__link--mod--active"
-                >Ремонт техники</a
-              >
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Услуги и сервисы</a>
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Корпоративным клиентам</a>
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Продавцам техники</a>
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Партнерам</a>
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Производителям</a>
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Наши сервисные центры</a>
-            </li>
-            <li class="aside-menu-list__item">
-              <a class="aside-menu-list__link">Контакты</a>
-            </li>
-          </ul>
-        </nav>
-      </main>
-      <footer class="aside-footer">
-        <section class="aside-footer__menu aside-footer-menu">
-          <button
-            type="button"
-            class="aside-footer-menu__btn aside-menu__btn"
-          ></button>
-          <button
-            type="button"
-            class="aside-footer-menu__btn aside-menu__btn"
-          ></button>
-          <button
-            type="button"
-            class="aside-footer-menu__btn aside-menu__btn"
-          ></button>
-        </section>
-        <section class="aside-footer__contacts aside-footer-contacts">
-          <a href="mailto:mail@cps.com" class="aside-footer-contacts__link"
-            >mail@cps.com</a
-          >
-          <a href="tel:88008908900" class="aside-footer-contacts__link"
-            >8 800 890 8900</a
-          >
-        </section>
-        <form action="" method="get" class="aside-footer__language">
-          <input
-            type="radio"
-            id="RU"
-            name="footer__language-link"
-            class="aside-footer__language-link"
-          />
-          <label for="RU" class="aside-footer__language-label">RU</label>
-          <input
-            type="radio"
-            id="EN"
-            name="footer__language-link"
-            class="aside-footer__language-link"
-          />
-          <label for="EN" class="aside-footer__language-label">EN</label>
-          <input
-            type="radio"
-            id="CH"
-            name="footer__language-link"
-            class="aside-footer__language-link"
-          />
-          <label for="CH" class="aside-footer__language-label">CH</label>
-        </form>
-      </footer>
-    </aside>
   </body>
 </html>

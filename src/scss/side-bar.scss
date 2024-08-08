@@ -1,0 +1,212 @@
+.visible {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: -305px;
+}
+
+.aside-menu {
+}
+
+.aside-header__menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 18px 24px 46px 24px;
+}
+
+.aside-header-menu__logo-link {
+  width: 97px;
+  height: 51px;
+  margin-right: 78px;
+  cursor: pointer;
+  background-image: url('../img/logo.svg');
+  background-repeat: no-repeat;
+}
+
+.aside-menu__btn {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  cursor: pointer;
+  background-color: #ff3e79;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50px;
+}
+
+.aside-header-menu__btn:hover {
+  transition-duration: 700ms;
+  filter: brightness(70%);
+}
+
+.aside-header-menu__btn:first-child {
+  background-image: url('../img/close.svg');
+}
+
+.aside-header-menu__btn:last-child {
+  margin: 0;
+  background-image: url('../img/search.svg');
+}
+
+.aside-footer-menu__btn:nth-child(1) {
+  background-image: url('../img/phone.svg');
+}
+.aside-footer-menu__btn:nth-child(2) {
+  background-image: url('../img/chat.svg');
+}
+.aside-footer-menu__btn:nth-child(3) {
+  background-image: url('../img/profile.svg');
+}
+
+.aside-main__menu {
+  margin-bottom: 268px;
+}
+
+.aside-main-menu__list {
+  margin: 0;
+  padding: 0;
+}
+
+.aside-menu-list__item {
+  margin-left: 24px;
+  margin-bottom: 32px;
+  position: relative;
+  list-style-type: none;
+}
+
+.aside-menu-list__link::before,
+.aside-menu-list__link--mod--active::before {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -24px;
+  width: 4px;
+  height: 32px;
+  background-color: #41f6d7;
+  border-radius: 0 30px 30px 0;
+}
+
+.aside-menu-list__link--mod--active::before {
+  opacity: 1;
+}
+
+.aside-menu-list__link:hover::before {
+  transition-duration: 700ms;
+  opacity: 1;
+}
+
+.aside-menu-list__link:active::before {
+  content: ' ';
+  position: absolute;
+  top: 0px;
+  left: -24px;
+  width: 4px;
+  height: 32px;
+  background-color: #41f6d7;
+  border-radius: 0 30px 30px 0;
+}
+
+.aside-menu-list__item:last-child {
+  margin-bottom: 0;
+}
+
+.aside-menu-list__link {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: #1b1c21;
+  cursor: pointer;
+}
+
+.aside-menu-list__link:hover {
+  transition-duration: 700ms;
+  color: #7e7e82;
+}
+
+.aside-footer__menu {
+  display: flex;
+  margin-left: 24px;
+}
+
+.aside-footer-menu__btn:last-child {
+  margin: 0;
+}
+
+.aside-footer__contacts {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  margin-left: 24px;
+}
+
+.aside-footer-contacts__link {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: #1b1c21;
+  cursor: pointer;
+}
+
+.aside-footer-contacts__link:last-child {
+  margin-top: 12px;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 32px;
+  letter-spacing: -0.6px;
+}
+
+.aside-footer__language {
+  display: flex;
+  margin: 40px 0 32px 24px;
+}
+
+.aside-footer__language-link:checked,
+.aside-footer__language-link:not(:checked) {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.aside-footer__language-link:checked + .aside-footer__language-label,
+.aside-footer__language-link:not(:checked) + .aside-footer__language-label {
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  margin-right: 7px;
+  cursor: pointer;
+}
+
+.aside-footer__language-link:checked + .aside-footer__language-label::before,
+.aside-footer__language-link:not(:checked)
+  + .aside-footer__language-label::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.aside-footer__language-link:checked + .aside-footer__language-label {
+  color: #7e7e82;
+}
+
+.aside-footer__language-label:hover {
+  color: #7e7e82;
+}
+
+.aside-footer__language-link:last-child {
+  margin-right: 0;
+}
