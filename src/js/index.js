@@ -16,26 +16,93 @@ let showBtn = document.querySelector('.main-content__text-expand-btn')
 let changeText = document.querySelector('#readText')
 let arrowRotate = showBtn.querySelector('#arrowRotate')
 let sidebarMask = document.querySelectorAll('.aside-menu-list__link')
+let listHeaderRemoveOrAdd = document.querySelectorAll(
+  '.list-of-services__services-list-link'
+)
+let burgerButton = document.querySelector('.header-menu__burger-link')
+let sidebarClassesRemoveOrAdd = document.querySelector('#sideBarSection')
+let sidebarCloseButton = document.querySelector('#aside-menu-close')
+let bodyBlur = document.querySelector('.wrapper-blur')
+let windowClose = document.querySelector('.aside-wrapper')
 
-function showHideMask() {
-  sidebarMask.addEventListener(
-    'click',
-    (event) => {
-      event.preventDefault()
-      console.log('ne')
+burgerButton.addEventListener('click', (evt) => {
+  evt.preventDefault()
 
-      let isACtive = document.querySelector(
-        '.aside-menu-list__link--mod--active'
-      )
-      if (!isACtive) {
-        for (let i = 0; i < sidebarMask.length; i++) {
-          sidebarMask[i].classList.add('aside-menu-list__link--mod--active')
-          console.log('da')
-        }
+  if (
+    document.documentElement.clientWidth >= 768 &&
+    document.documentElement.clientWidth <= 1366
+  ) {
+    sidebarClassesRemoveOrAdd.classList.remove(
+      'aside-menu',
+      'visible',
+      'visible-phone'
+    )
+    bodyBlur.classList.add('wrapper-blur--active')
+    sidebarClassesRemoveOrAdd.classList.add('visible-tablet')
+    windowClose.classList.add('aside-wrapper-active')
+  }
+
+  if (document.documentElement.clientWidth <= 768) {
+    sidebarClassesRemoveOrAdd.classList.remove(
+      'aside-menu',
+      'visible',
+      'visible-tablet'
+    )
+    sidebarClassesRemoveOrAdd.classList.add('visible-phone')
+  }
+})
+
+if (sidebarClassesRemoveOrAdd.classList.contains('visible-tablet')) {
+  windowClose.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    sidebarClassesRemoveOrAdd.classList.remove(
+      'visible-phone',
+      'visible-tablet'
+    )
+    sidebarClassesRemoveOrAdd.classList.add('aside-menu', 'visible')
+    bodyBlur.classList.remove('wrapper-blur--active')
+    windowClose.classList.remove('aside-wrapper-active')
+  })
+}
+
+sidebarCloseButton.addEventListener(
+  'click',
+  (evt) => {
+    evt.preventDefault()
+    sidebarClassesRemoveOrAdd.classList.remove(
+      'visible-phone',
+      'visible-tablet'
+    )
+    sidebarClassesRemoveOrAdd.classList.add('aside-menu', 'visible')
+    bodyBlur.classList.remove('wrapper-blur--active')
+  },
+  false
+)
+
+for (let itm of listHeaderRemoveOrAdd) {
+  itm.addEventListener('click', function (evt) {
+    evt.preventDefault()
+    itm.classList.add('list-of-services__services-list-link--active')
+    for (let i = 0; i < listHeaderRemoveOrAdd.length; i++) {
+      if (listHeaderRemoveOrAdd[i] !== itm) {
+        listHeaderRemoveOrAdd[i].classList.remove(
+          'list-of-services__services-list-link--active'
+        )
       }
-    },
-    false
-  )
+    }
+  })
+}
+
+for (let itm of sidebarMask) {
+  itm.addEventListener('click', function (evt) {
+    evt.preventDefault()
+    itm.classList.add('aside-menu-list__link--mod--active')
+    for (let i = 0; i < sidebarMask.length; i++) {
+      if (sidebarMask[i] !== itm) {
+        sidebarMask[i].classList.remove('aside-menu-list__link--mod--active')
+      }
+    }
+  })
 }
 
 showBtn.addEventListener(

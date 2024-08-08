@@ -63,6 +63,12 @@
     border-radius: 6px;
     background-color: #ffffff;
   }
+
+  &__services-list-link--active {
+    border: 2px solid #b8ffec;
+    border-radius: 6px;
+    background-color: #ffffff;
+  }
 }
 
 @media (min-width: 1366px) {

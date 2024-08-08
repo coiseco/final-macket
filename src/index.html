@@ -10,13 +10,14 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-
-    <aside class="aside-menu visible">
+    <div class="aside-wrapper">
+    <aside class="aside-menu visible" id="sideBarSection">
       <header class="aside-header">
         <section class="aside-header__menu aside-header-menu">
           <button
             type="button"
             class="aside-header-menu__btn aside-menu__btn"
+            id = "aside-menu-close"
           ></button>
           <a class="aside-header-menu__logo-link"></a>
           <button
@@ -106,6 +107,8 @@
         </form>
       </footer>
     </aside>
+  </div>
+  <div class="wrapper-blur">
     <header class="header">
       <nav class="header-menu">
         <section class="header-menu__logo-section">
@@ -151,7 +154,7 @@
           <li
             class="list-of-services__list-item list-of-services__list-item--list-item--active"
           >
-            <a class="list-of-services__services-list-link"
+            <a class="list-of-services__services-list-link list-of-services__services-list-link--active "
               >Ремонтируемые бренды</a
             >
           </li>
@@ -379,5 +382,6 @@
         </main>
       </article>
     </main>
+  </div>
   </body>
 </html>
