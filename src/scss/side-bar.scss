@@ -1,12 +1,25 @@
-.visible {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: -305px;
+@media (max-width: 1366px) {
+  .aside-menu {
+    display: none;
+  }
 }
 
-.aside-menu {
+@media (min-width: 1366px) {
+  .visible {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 27px;
+    left: -124px;
+  }
+
+  .aside-header-menu__btn:first-child {
+    display: none;
+  }
+
+  .aside-menu__btn.aside-header-menu__btn:last-child {
+    margin-left: 29px;
+  }
 }
 
 .aside-header__menu {

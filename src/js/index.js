@@ -15,6 +15,28 @@ let textExpandShowHide = document.querySelector('.main-content__text')
 let showBtn = document.querySelector('.main-content__text-expand-btn')
 let changeText = document.querySelector('#readText')
 let arrowRotate = showBtn.querySelector('#arrowRotate')
+let sidebarMask = document.querySelectorAll('.aside-menu-list__link')
+
+function showHideMask() {
+  sidebarMask.addEventListener(
+    'click',
+    (event) => {
+      event.preventDefault()
+      console.log('ne')
+
+      let isACtive = document.querySelector(
+        '.aside-menu-list__link--mod--active'
+      )
+      if (!isACtive) {
+        for (let i = 0; i < sidebarMask.length; i++) {
+          sidebarMask[i].classList.add('aside-menu-list__link--mod--active')
+          console.log('da')
+        }
+      }
+    },
+    false
+  )
+}
 
 showBtn.addEventListener(
   'click',
@@ -39,7 +61,7 @@ showBtn.addEventListener(
 function removeAdd() {
   if (
     document.documentElement.clientWidth >= 768 &&
-    document.documentElement.clientWidth <= 1119
+    document.documentElement.clientWidth <= 1366
   ) {
     for (let i = 0; i < headerMenuRemoveOrAdd.length; i++) {
       headerMenuRemoveOrAdd[i].classList.remove('visually-hidden')
@@ -50,7 +72,7 @@ function removeAdd() {
     }
   }
 
-  if (document.documentElement.clientWidth <= 1119) {
+  if (document.documentElement.clientWidth <= 1366) {
     mainHeaderRemoveOrAdd.classList.add('visually-hidden')
   } else {
     mainHeaderRemoveOrAdd.classList.remove('visually-hidden')

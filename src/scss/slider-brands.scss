@@ -24,7 +24,7 @@
     }
   }
 
-  @media (min-width: 1120px) {
+  @media (min-width: 1366px) {
     &__inner {
       max-height: 56px;
     }
@@ -148,7 +148,7 @@
       margin-right: 255px;
     }
 
-    @media (min-width: 1120px) {
+    @media (min-width: 1366px) {
       &__list--slider-deactive > .slider-list__item:last-child {
         margin-right: 287px;
       }

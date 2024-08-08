@@ -15,11 +15,12 @@ body {
   font-weight: 400;
   margin: 0 auto;
   padding: 0 auto;
+  max-width: 1120px;
   background-color: #f8f8f8;
   box-sizing: border-box;
 
-  @media (min-width: 1120px) {
-    max-width: 1120px;
+  @media (min-width: 1366px) {
+    padding-left: 176px;
   }
 }
 
