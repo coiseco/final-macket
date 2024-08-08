@@ -1,3 +1,7 @@
+.slider {
+  padding-top: 48px;
+}
+
 .slider-header {
   &__inner {
     box-sizing: border-box;
@@ -47,11 +51,39 @@
     align-items: center;
   }
 
+  & > .slider-techniks {
+    height: 160px;
+  }
+
+  &__item.slider-techniks.swiper-slide::after {
+    content: '';
+    position: absolute;
+    box-sizing: border-box;
+    display: inline-block;
+    top: 104px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    padding: 14px 15.5px 14px 17px;
+    border: 2px solid #ff3e79;
+    border-radius: 50%;
+    background: url('../img/dropdown.png') no-repeat 50% 50%;
+  }
+
   &__link {
     display: inline-block;
     vertical-align: middle;
     text-align: center;
     margin-left: 16px;
+  }
+
+  &__link.slider-techniks__link {
+    align-self: flex-start;
+    margin-top: 16px;
+    text-decoration: none;
+    color: #1b1c21;
+    font-style: 16px;
+    line-height: 24px;
   }
 
   &__item.swiper-slide {
@@ -126,21 +158,22 @@
 
 .swiper {
   &.slider-main__wrapper {
-    position: static;
+    position: relative;
   }
 
   &.slider-main__wrapper > .swiper-pagination {
     top: 180px;
+    height: 30px;
   }
 }
 
 .swiper-pagination {
-  & > &-bullet {
+  &-bullet {
     width: 12px;
     height: 12px;
   }
 
-  & > &-bullet-active {
+  &-bullet-active {
     background-color: #b5b6bc;
   }
 }

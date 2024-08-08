@@ -105,17 +105,23 @@ const swiper = new Swiper('.swiper', {
   }
 })
 
-function swiperOff() {
+function swiperOff(param) {
   listSliderDeact.classList.add('slider-main__list--slider-deactive')
   listSliderDeact.classList.remove('swiper-wrapper')
   pagginationOff.remove()
+  if (pagginationOff) {
+    console.log('hui')
+  } else {
+    console.log('click')
+  }
+
+  console.log(param)
 }
 
 if (document.documentElement.clientWidth <= 768) {
-  swiper
   buttonShow.remove()
 } else {
-  swiperOff()
+  swiperOff('ya otdau')
   showContent()
 }
 console.log('Works!')
