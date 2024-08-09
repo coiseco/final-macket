@@ -183,6 +183,16 @@
   }
 }
 
+.prices-body__wrapper {
+  position: static;
+}
+
+.prices-body__wrapper > .swiper-pagination.pagination-slider {
+  position: absolute;
+  top: 276px;
+  height: 20px;
+}
+
 .swiper-pagination > .swiper-pagination {
   &-bullet {
     width: 12px;

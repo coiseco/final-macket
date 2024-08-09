@@ -10,6 +10,81 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    <aside class="popup popup-message popup-message--hide">
+      <div class="popup__wrapper">
+        <button
+          class="button-menu button-menu--icon-cross popup__button-close"
+          type="button"
+        ></button>
+        <h2 class="highlighted-text popup__title">Обратная связь</h2>
+        <form class="popup__form">
+          <input
+            type="text"
+            name="firstName"
+            class="popup__name-input"
+            id="firstName"
+            placeholder="Имя"
+          />
+          <input
+            type="tel"
+            name="telNumber"
+            class="popup__tel-input"
+            id="telNumber"
+            placeholder="Телефон"
+          />
+          <input
+            type="email"
+            name="email"
+            class="popup__email-input"
+            id="email"
+            placeholder="Электронная почта"
+          />
+          <textarea
+            name="textMessage"
+            id="textMessage"
+            class="popup__message-input"
+            cols="5"
+            placeholder="Сообщение"
+          ></textarea>
+          <p class="popup__disclaimer"
+            >Нажимая “отправить”, вы даете согласие на
+            <a href="#" class="popup__link">обработку персональных данных</a>
+            и соглашаетесь с нашей
+            <a href="#" class="popup__link">политикой конфиденциальности</a></p
+          >
+          <button type="submit" class="popup__button-submit elipse-button"
+            >ОТПРАВИТЬ</button
+          >
+        </form>
+      </div>
+      </aside>
+      <aside class="popup popup-call popup-call--hide">
+      <div class="popup__wrapper">
+        <button
+          class="button-menu button-menu--icon-cross popup__button-close"
+          type="button"
+        ></button>
+        <h2 class="highlighted-text popup__title">Заказать звонок</h2>
+        <form class="popup__form">
+          <input
+            type="tel"
+            name="telNumber"
+            class="popup__tel-input"
+            id="telNumber"
+            placeholder="Телефон"
+          />
+          <p class="popup__disclaimer"
+            >Нажимая “отправить”, вы даете согласие на
+            <a href="#" class="popup__link">обработку персональных данных</a>
+            и соглашаетесь с нашей
+            <a href="#" class="popup__link">политикой конфиденциальности</a></p
+          >
+          <button type="submit" class="popup__button-submit elipse-button"
+            >ОТПРАВИТЬ</button
+          >
+        </form>
+      </div>
+      </aside>
     <aside class="aside-menu visible" id="sideBarSection">
       <header class="aside-header">
         <section class="aside-header__menu aside-header-menu">
@@ -63,10 +138,12 @@
           <button
             type="button"
             class="aside-footer-menu__btn aside-menu__btn"
+            id="assidePopupCall"
           ></button>
           <button
             type="button"
             class="aside-footer-menu__btn aside-menu__btn"
+            id="assidePopupMessage"
           ></button>
           <button
             type="button"
@@ -119,9 +196,11 @@
         <section class="header-menu__menu-content-section">
           <a
             class="visually-hidden header-menu__medium-screen-link menu-btn"
+            id="popupCall"
           ></a>
           <a
             class="visually-hidden header-menu__medium-screen-link menu-btn"
+            id="popupMessage"
           ></a>
           <a
             class="visually-hidden header-menu__medium-screen-link menu-btn"
@@ -380,7 +459,155 @@
           </div>
         </main>
       </article>
+      <section class="main__section section">
+          <header class="section__header">
+            <h2 class="section__title h2">Цены на услуги</h2>
+          </header>
+
+          <div class="prices-body section__body">
+            <div class="prices-body__wrapper">
+              <table class=" prices-body__table prices-table swiper-price">
+
+                <colgroup>
+                  <col span="1" style="width: 40%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+                  <col span="1" style="width: 20%;">
+               </colgroup>
+
+                <thead class="prices-table__head">
+                  <tr class="prices-table__row">
+                    <th class="prices-table__cell--gray prices-table__cell">Ремонтные услуги</th>
+                    <th class="prices-table__cell--gray prices-table__cell">Цена</th>
+                    <th class="prices-table__cell--gray prices-table__cell">Срок</th>
+                    <th class="prices-table__cell--gray prices-table__cell"></th>
+                  </tr>
+                </thead>
+
+                <tbody class="prices-table__body swiper-wrapper  ">
+                  <tr class="prices-table__row swiper-slide ">
+                    <td
+                      class="prices-table__cell"
+                      data-label="Ремонтные услуги"
+                    >
+                      Диагностика
+                    </td>
+                    <td class="prices-table__cell" data-label="Цена">
+                      Бесплатно
+                    </td>
+                    <td class="prices-table__cell" data-label="Срок">
+                      30 мин
+                    </td>
+                    <td class="prices-table__cell" data-label="">
+                      <a class="prices-table__button elipse-button" href="#">
+                        Заказать
+                      </a>
+                    </td> </tr
+                  ></tr class="prices-table__row">
+                  <tr class="prices-table__row  swiper-slide">
+                    <td
+                      class="prices-table__cell"
+                      data-label="Ремонтные услуги"
+                    >
+                      Замена дисплея
+                    </td>
+                    <td class="prices-table__cell" data-label="Цена">
+                      1 000 ₽
+                    </td>
+                    <td class="prices-table__cell" data-label="Срок">
+                      30-120 мин
+                    </td>
+                    <td class="prices-table__cell">
+                      <a class="prices-table__button elipse-button" href="#">
+                        Заказать
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="prices-table__row  swiper-slide">
+                    <td
+                      class="prices-table__cell"
+                      data-label="Ремонтные услуги"
+                    >
+                      Чистка
+                    </td>
+                    <td class="prices-table__cell" data-label="Цена">
+                      1 000 ₽
+                    </td>
+                    <td class="prices-table__cell" data-label="Срок">
+                      30-120 мин
+                    </td>
+                    <td class="prices-table__cell">
+                      <a class="prices-table__button elipse-button" href="#">
+                        Заказать
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="prices-table__row  swiper-slide">
+                    <td
+                      class="prices-table__cell"
+                      data-label="Ремонтные услуги"
+                    >
+                      Тех. обслуживание
+                    </td>
+                    <td class="prices-table__cell" data-label="Цена">
+                      1 000 ₽
+                    </td>
+                    <td class="prices-table__cell" data-label="Срок">
+                      30-120 мин
+                    </td>
+                    <td class="prices-table__cell">
+                      <a class="prices-table__button elipse-button" href="#">
+                        Заказать
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class=" prices-table__row swiper-slide">
+                    <td
+                      class="prices-table__cell"
+                      data-label="Ремонтные услуги"
+                    >
+                      Замена ПО
+                    </td>
+                    <td class="prices-table__cell" data-label="Цена">
+                      1 000 ₽
+                    </td>
+                    <td class="prices-table__cell" data-label="Срок">
+                      30-120 мин
+                    </td>
+                    <td class="prices-table__cell">
+                      <a class="prices-table__button elipse-button" href="#">
+                        Заказать
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="pagination-slider swiper-pagination"></div>
+
+              <div class="prices-body__info">
+                Все цены указаны с учетом НДС. <br>Стоимость ремонта указана на
+                единичную услугу. Для получения коммерческого предложения на
+                постоянное обслуживание, оставьте заявку.
+              </div>
+
+              <a class="prices-body__link" href="#"
+                >Получить коммерческое предложение</a
+              >
+            </div>
+          </div>
+          </section>
     </main>
+    <footer class="page-footer">
+          <div class="page-footer__elem"
+            >© 2019 CPS<br />Разработано командой Apesong
+          </div>
+          <div class="page-footer__elem">Политика конфиденциальности</div>
+          <div class="page-footer__elem"
+            >Информация, размещенная на данной странице, не является публичной
+            офертой</div
+          >
+          </footer>
   </div>
   </body>
 </html>

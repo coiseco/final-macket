@@ -1,0 +1,13 @@
+.page-footer {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  padding: 32px 24px 41px 24px;
+  width: 100%;
+  color: $dark-gray;
+  &__elem {
+    width: calc(100% / 3);
+    // margin-right: calc(100% / 3);
+    word-wrap: break-word;
+  }
+}

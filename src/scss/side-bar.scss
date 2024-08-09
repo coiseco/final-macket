@@ -55,6 +55,12 @@
   margin-bottom: 268px;
 }
 
+@media (min-width: 768px) and (max-width: 1366px) {
+  .aside-main__menu {
+    margin-bottom: 62px;
+  }
+}
+
 .aside-main-menu__list {
   margin: 0;
   padding: 0;

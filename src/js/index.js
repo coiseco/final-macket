@@ -33,6 +33,67 @@ let sidebarClassesRemoveOrAdd = document.querySelector('#sideBarSection')
 let sidebarCloseButton = document.querySelector('#aside-menu-close')
 let bodyBlur = document.querySelector('.wrapper-blur')
 let windowClose = document.querySelector('.aside-wrapper')
+let popupAssideCallOpen = document.querySelector('#assidePopupCall')
+let popupAssideMessageOpen = document.querySelector('#assidePopupMessage')
+let popupCallOpen = document.querySelector('#popupCall')
+let popupMessageOpen = document.querySelector('#popupMessage')
+let popupCall = document.querySelector('.popup-call')
+let popupMessage = document.querySelector('.popup-message')
+let popupButtonClose = document.querySelector('.popup__button-close')
+
+popupButtonClose.addEventListener('click', (evt) => {
+  evt.preventDefault()
+  popupCall.classList.add('popup-call--hide')
+  popupMessage.classList.add('popup-message--hide')
+})
+
+popupAssideCallOpen.addEventListener('click', (evt) => {
+  evt.preventDefault()
+
+  let ifOpenPopupCall = document.querySelector('.popup-call--hide')
+
+  if (ifOpenPopupCall) {
+    popupCall.classList.remove('popup-call--hide')
+  } else {
+    popupCall.classList.add('popup-call--hide')
+  }
+})
+
+popupAssideMessageOpen.addEventListener('click', (evt) => {
+  evt.preventDefault()
+
+  let ifOpenPopupMessage = document.querySelector('.popup-message--hide')
+
+  if (ifOpenPopupMessage) {
+    popupMessage.classList.remove('popup-message--hide')
+  } else {
+    popupMessage.classList.add('popup-message--hide')
+  }
+})
+
+popupCallOpen.addEventListener('click', (evt) => {
+  evt.preventDefault()
+
+  let ifOpenPopupCall = document.querySelector('.popup-call--hide')
+
+  if (ifOpenPopupCall) {
+    popupCall.classList.remove('popup-call--hide')
+  } else {
+    popupCall.classList.add('popup-call--hide')
+  }
+})
+
+popupMessageOpen.addEventListener('click', (evt) => {
+  evt.preventDefault()
+
+  let ifOpenPopupMessage = document.querySelector('.popup-message--hide')
+
+  if (ifOpenPopupMessage) {
+    popupMessage.classList.remove('popup-message--hide')
+  } else {
+    popupMessage.classList.add('popup-message--hide')
+  }
+})
 
 burgerButton.addEventListener('click', (evt) => {
   evt.preventDefault()
@@ -237,6 +298,23 @@ function swiperInit() {
   })
 }
 
+function swiperPriceInit() {
+  const swiperPrice = new Swiper('.swiper-price', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    spaceBetween: 16,
+    slidesPerView: 'auto',
+
+    modules: [Pagination],
+    pagination: {
+      el: '.pagination-slider',
+      type: 'bullets',
+      clickable: true
+    }
+  })
+}
+
 function swiperOff(param) {
   listSliderDeact.classList.add('slider-main__list--slider-deactive')
   listSliderDeact.classList.remove('swiper-wrapper')
@@ -246,6 +324,7 @@ function swiperOff(param) {
 }
 
 if (document.documentElement.clientWidth <= 768) {
+  swiperPriceInit()
   swiperInit()
   buttonShow.remove()
   buttonShowTechniks.remove()

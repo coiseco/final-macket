@@ -1,0 +1,26 @@
+// .popup {
+//   width: 100%;
+//   &__wrapper {
+//     display: flex;
+//     flex-direction: column;
+//   }
+
+//   &__title{
+
+//   }
+// }
+.popup-call--hide {
+  display: none;
+}
+.button-menu {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+  cursor: pointer;
+  background-color: #ff3e79;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 50px;
+  background-image: url('../img/close.svg');
+}

@@ -1,0 +1,61 @@
+.popup {
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  box-shadow: 16px 0px 52px 0px #0e185033;
+  padding: 24px 16px;
+  background: white;
+  z-index: 1000;
+  // float: left;
+
+  &__title {
+    margin-top: 40px;
+    @media (min-width: 768px) {
+      margin-top: 0;
+      padding-left: 32px;
+      margin-left: -32px;
+    }
+  }
+  &__form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__button-submit {
+    align-self: flex-end;
+  }
+  &__button-close {
+    align-self: flex-start;
+    @media (min-width: 768px) {
+      position: absolute;
+      left: -75px;
+    }
+  }
+  &__name-input,
+  &__tel-input,
+  &__email-input,
+  &__message-input {
+    background: $white;
+    padding: 12px 16px;
+    border: 1px solid $light-gray;
+    border-radius: 10px;
+  }
+  &__disclaimer {
+    line-height: 16px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  &__link {
+    color: $pink;
+  }
+
+  @media (min-width: 768px) {
+    width: 440px;
+    padding: 40px 32px;
+  }
+}

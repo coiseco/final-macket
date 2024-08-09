@@ -1,0 +1,197 @@
+.prices-body {
+  overflow: hidden;
+  position: relative;
+  &__wrapper {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    position: relative;
+  }
+  &__info {
+    width: 100%;
+    margin-top: 45px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    text-align: left;
+    @media screen and (min-width: 768px) {
+      width: 50%;
+    }
+  }
+  &__link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+    margin-top: 16px;
+    line-height: 24px;
+    &::after {
+      content: url(../img/dropdown.svg);
+      position: relative;
+      left: 16px;
+      vertical-align: middle;
+    }
+  }
+}
+.prices-table {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  margin-right: -24px;
+  &__row.swiper-slide {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 260px;
+
+    min-height: 200px;
+    padding: 16px;
+    padding-top: 32px;
+    position: relative;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    &__row.swiper-slide {
+      max-width: 260px;
+      border-radius: 10px;
+    }
+  }
+  &__cell {
+    border-radius: 6px;
+    display: block;
+    position: relative;
+    &:last-child {
+      font-weight: 700;
+      letter-spacing: -0.15px;
+      font-size: 12px;
+      text-transform: uppercase;
+      padding: 0;
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+    }
+    &--gray {
+      color: $dark-gray;
+      opacity: 0.7218;
+    }
+    &::before {
+      content: attr(data-label);
+      color: $dark-gray;
+      position: absolute;
+      bottom: 20px;
+      padding-top: 16px;
+      &:nth-child(3) {
+        white-space: nowrap;
+      }
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  &__button {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 24px;
+  }
+  &__body {
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  &__head {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    &__row.swiper-slide {
+      display: table-row;
+      width: 100%;
+      height: auto;
+      position: relative;
+      background-color: transparent;
+      text-align: left;
+    }
+    &__body.swiper-wrapper {
+      display: table-row-group;
+      background-color: $white;
+      border-radius: 6px;
+      padding-inline: 23px;
+    }
+    &__head {
+      display: table-header-group;
+    }
+    &__cell {
+      display: table-cell;
+      position: relative;
+      border-radius: 0;
+
+      text-align: left;
+      padding: 23px 16px;
+      height: 56px;
+      &:last-child {
+        padding: 0;
+        position: relative;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin-right: 16px;
+      }
+    }
+  }
+}
+.section {
+  background-color: $white-bg;
+  &__body {
+    margin-top: 16px;
+    @media screen and (min-width: 768px) {
+      margin-top: 24px;
+    }
+  }
+  &__header {
+    display: flex;
+
+    align-items: center;
+    color: #7e7e82;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    margin-top: 0;
+    @media screen and (min-width: 768px) {
+      margin-top: 32px;
+    }
+  }
+  &__title {
+    font-size: 16px;
+  }
+}
+
+.elipse-button {
+  display: flex;
+  border: 2px solid $white;
+  border-radius: 16px;
+  justify-content: left;
+  padding-left: 12px;
+  align-items: center;
+  height: 32px;
+  width: 131px;
+  color: $white;
+  background-color: $pink;
+  background-image: url(../img/dropdown-white.svg);
+  background-repeat: no-repeat;
+  background-position: 108px center;
+  &:hover {
+    color: $pink;
+    border-color: $pink;
+    background-color: $white;
+    background-image: url(../img/dropdown.svg);
+  }
+}

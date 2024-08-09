@@ -7,6 +7,11 @@
 @import 'slider-brands';
 @import 'side-bar';
 @import 'show-hide-side-bar';
+@import 'price-section';
+@import 'footer';
+@import 'popup-call';
+@import 'popup-message';
+@import 'popup';
 
 @include font-face('TT Lakes', 'TTLakes-Regular', 400);
 
@@ -18,7 +23,6 @@ body {
   padding: 0 auto;
   max-width: 1120px;
   background-color: #f8f8f8;
-  box-sizing: border-box;
 
   @media (min-width: 1366px) {
     padding-left: 176px;
