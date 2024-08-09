@@ -1,5 +1,11 @@
 .slider {
-  padding-top: 48px;
+  @media (max-width: 768px) {
+    padding-top: 48px;
+  }
+
+  &-main {
+    position: relative;
+  }
 }
 
 .slider-header {
@@ -133,6 +139,12 @@
     overflow: visible;
   }
 
+  &__list--show-content-techniks {
+    transition: all 0.5s ease-in-out;
+    max-height: 767px;
+    overflow: visible;
+  }
+
   &__list--hide-content {
     transition: all 0.5s ease-in-out;
     max-height: 200px;
@@ -158,16 +170,20 @@
 
 .swiper {
   &.slider-main__wrapper {
-    position: relative;
+    position: static;
   }
 
   &.slider-main__wrapper > .swiper-pagination {
-    top: 180px;
-    height: 30px;
+    position: absolute;
+    top: 101px;
+  }
+
+  &.slider-main__wrapper > .techniks {
+    top: 190px;
   }
 }
 
-.swiper-pagination {
+.swiper-pagination > .swiper-pagination {
   &-bullet {
     width: 12px;
     height: 12px;

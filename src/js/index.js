@@ -1,11 +1,20 @@
 import '../scss/style.scss'
-import Swiper from 'swiper/swiper-bundle'
+import Swiper from 'swiper'
+import { Pagination } from 'swiper/modules'
+// import Swiper and modules styles
 import 'swiper/swiper.scss'
+import 'swiper/modules/pagination.scss'
 
 let listSliderDeact = document.querySelector('.slider-main__list')
-let buttonShow = document.querySelectorAll('.slider-button__wrapper')
-let buttonArrow = document.querySelector('#arrow')
-let element = document.querySelector('#showButton')
+let listSliderDeactTechniks = document.querySelector(
+  '.slider-main__list-techniks'
+)
+let buttonShow = document.querySelector('#showButtonWrapper')
+let buttonArrow = buttonShow.querySelector('#arrow')
+let element = buttonShow.querySelector('#showButton')
+let buttonShowTechniks = document.querySelector('#showButtonTechniksWrapper')
+let buttonArrowTechniks = buttonShowTechniks.querySelector('#arrowTechniks')
+let elementTechniks = buttonShowTechniks.querySelector('#showButtonTechniks')
 let pagginationOff = document.querySelector('.swiper-pagination')
 let headerMenuRemoveOrAdd = document.querySelectorAll(
   '.header-menu__medium-screen-link'
@@ -159,30 +168,56 @@ window.addEventListener(
   false
 )
 
-function showContent() {
-  for (let i = 0; i < buttonShow.length; i++) {
-    buttonShow[i].addEventListener('click', function (evt) {
-      evt.preventDefault()
+function showContentTechniks() {
+  buttonShowTechniks.addEventListener('click', function (evt) {
+    evt.preventDefault()
 
-      let contentShowing = document.querySelector(
-        '.slider-main__list--show-content'
+    let contentShowing = document.querySelector(
+      '.slider-main__list--show-content-techniks'
+    )
+    if (!contentShowing) {
+      listSliderDeactTechniks.classList.add(
+        'slider-main__list--show-content-techniks'
       )
+      listSliderDeactTechniks.classList.remove(
+        'slider-main__list--hide-content'
+      )
+      elementTechniks.textContent = 'Скрыть'
+      buttonArrowTechniks.classList.add('slider-button__arrow--reverse')
+      buttonArrowTechniks.classList.remove('slider-button__arrow--forward')
+    } else {
+      listSliderDeactTechniks.classList.remove(
+        'slider-main__list--show-content-techniks'
+      )
+      listSliderDeactTechniks.classList.add('slider-main__list--hide-content')
+      elementTechniks.textContent = 'Показать всё'
+      buttonArrowTechniks.classList.remove('slider-button__arrow--reverse')
+      buttonArrowTechniks.classList.add('slider-button__arrow--forward')
+    }
+  })
+}
 
-      if (!contentShowing) {
-        listSliderDeact.classList.add('slider-main__list--show-content')
-        listSliderDeact.classList.remove('slider-main__list--hide-content')
-        element.textContent = 'Скрыть'
-        buttonArrow.classList.add('slider-button__arrow--reverse')
-        buttonArrow.classList.remove('slider-button__arrow--forward')
-      } else {
-        listSliderDeact.classList.remove('slider-main__list--show-content')
-        listSliderDeact.classList.add('slider-main__list--hide-content')
-        element.textContent = 'Показать всё'
-        buttonArrow.classList.remove('slider-button__arrow--reverse')
-        buttonArrow.classList.add('slider-button__arrow--forward')
-      }
-    })
-  }
+function showContent() {
+  buttonShow.addEventListener('click', function (evt) {
+    evt.preventDefault()
+
+    let contentShowing = document.querySelector(
+      '.slider-main__list--show-content'
+    )
+    if (!contentShowing) {
+      listSliderDeact.classList.add('slider-main__list--show-content')
+      listSliderDeact.classList.remove('slider-main__list--hide-content')
+      element.textContent = 'Скрыть'
+      buttonArrow.classList.add('slider-button__arrow--reverse')
+      buttonArrow.classList.remove('slider-button__arrow--forward')
+    } else {
+      listSliderDeact.classList.remove('slider-main__list--show-content')
+      listSliderDeact.classList.add('slider-main__list--hide-content')
+      element.textContent = 'Показать всё'
+      buttonArrow.classList.remove('slider-button__arrow--reverse')
+      buttonArrow.classList.add('slider-button__arrow--forward')
+    }
+  })
 }
 
 function swiperInit() {
@@ -193,47 +228,30 @@ function swiperInit() {
     spaceBetween: 16,
     slidesPerView: 'auto',
 
+    modules: [Pagination],
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
     }
   })
-
-  if (!buttonShow) {
-    console.log('netu')
-  }
-
-  for (let i = 0; i < buttonShow.length; i++) {
-    buttonShow[i].style.display = 'none'
-  }
 }
 
 function swiperOff(param) {
   listSliderDeact.classList.add('slider-main__list--slider-deactive')
   listSliderDeact.classList.remove('swiper-wrapper')
+  listSliderDeactTechniks.classList.add('slider-main__list--slider-deactive')
+  listSliderDeactTechniks.classList.remove('swiper-wrapper')
   pagginationOff.remove()
-  if (pagginationOff) {
-    console.log('hui')
-  } else {
-    console.log('click')
-  }
-
-  console.log(param)
 }
 
-// if (document.documentElement.clientWidth <= 768) {
-//   swiperInit()
-//   buttonShow.remove()
-// } else {
-//   swiperOff('ya otdau')
-//   showContent()
-// }
-
-if (document.documentElement.clientWidth >= 768) {
+if (document.documentElement.clientWidth <= 768) {
+  swiperInit()
+  buttonShow.remove()
+  buttonShowTechniks.remove()
+} else {
   swiperOff('ya otdau')
   showContent()
-} else {
-  swiperInit()
+  showContentTechniks()
 }
 console.log('Works!')
