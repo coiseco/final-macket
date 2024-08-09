@@ -3,9 +3,9 @@ import Swiper from 'swiper/swiper-bundle'
 import 'swiper/swiper.scss'
 
 let listSliderDeact = document.querySelector('.slider-main__list')
-let buttonShow = document.querySelector('#showButtonWrapper')
-let buttonArrow = buttonShow.querySelector('#arrow')
-let element = buttonShow.querySelector('#showButton')
+let buttonShow = document.querySelectorAll('.slider-button__wrapper')
+let buttonArrow = document.querySelector('#arrow')
+let element = document.querySelector('#showButton')
 let pagginationOff = document.querySelector('.swiper-pagination')
 let headerMenuRemoveOrAdd = document.querySelectorAll(
   '.header-menu__medium-screen-link'
@@ -52,9 +52,11 @@ burgerButton.addEventListener('click', (evt) => {
   }
 })
 
-if (sidebarClassesRemoveOrAdd.classList.contains('visible-tablet')) {
+if (sidebarClassesRemoveOrAdd.getElementsByClassName('visible-tablet')) {
+  console.log('da')
   windowClose.addEventListener('click', (evt) => {
     evt.preventDefault()
+    console.log('click')
     sidebarClassesRemoveOrAdd.classList.remove(
       'visible-phone',
       'visible-tablet'
@@ -75,6 +77,7 @@ sidebarCloseButton.addEventListener(
     )
     sidebarClassesRemoveOrAdd.classList.add('aside-menu', 'visible')
     bodyBlur.classList.remove('wrapper-blur--active')
+    windowClose.classList.remove('aside-wrapper-active')
   },
   false
 )
@@ -157,42 +160,54 @@ window.addEventListener(
 )
 
 function showContent() {
-  buttonShow.addEventListener('click', function (evt) {
-    evt.preventDefault()
+  for (let i = 0; i < buttonShow.length; i++) {
+    buttonShow[i].addEventListener('click', function (evt) {
+      evt.preventDefault()
 
-    let contentShowing = document.querySelector(
-      '.slider-main__list--show-content'
-    )
+      let contentShowing = document.querySelector(
+        '.slider-main__list--show-content'
+      )
 
-    if (!contentShowing) {
-      listSliderDeact.classList.add('slider-main__list--show-content')
-      listSliderDeact.classList.remove('slider-main__list--hide-content')
-      element.textContent = 'Скрыть'
-      buttonArrow.classList.add('slider-button__arrow--reverse')
-      buttonArrow.classList.remove('slider-button__arrow--forward')
-    } else {
-      listSliderDeact.classList.remove('slider-main__list--show-content')
-      listSliderDeact.classList.add('slider-main__list--hide-content')
-      element.textContent = 'Показать всё'
-      buttonArrow.classList.remove('slider-button__arrow--reverse')
-      buttonArrow.classList.add('slider-button__arrow--forward')
-    }
-  })
+      if (!contentShowing) {
+        listSliderDeact.classList.add('slider-main__list--show-content')
+        listSliderDeact.classList.remove('slider-main__list--hide-content')
+        element.textContent = 'Скрыть'
+        buttonArrow.classList.add('slider-button__arrow--reverse')
+        buttonArrow.classList.remove('slider-button__arrow--forward')
+      } else {
+        listSliderDeact.classList.remove('slider-main__list--show-content')
+        listSliderDeact.classList.add('slider-main__list--hide-content')
+        element.textContent = 'Показать всё'
+        buttonArrow.classList.remove('slider-button__arrow--reverse')
+        buttonArrow.classList.add('slider-button__arrow--forward')
+      }
+    })
+  }
 }
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-  spaceBetween: 16,
-  slidesPerView: 'auto',
+function swiperInit() {
+  const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+    spaceBetween: 16,
+    slidesPerView: 'auto',
 
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-    clickable: true
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  })
+
+  if (!buttonShow) {
+    console.log('netu')
   }
-})
+
+  for (let i = 0; i < buttonShow.length; i++) {
+    buttonShow[i].style.display = 'none'
+  }
+}
 
 function swiperOff(param) {
   listSliderDeact.classList.add('slider-main__list--slider-deactive')
@@ -207,10 +222,18 @@ function swiperOff(param) {
   console.log(param)
 }
 
-if (document.documentElement.clientWidth <= 768) {
-  buttonShow.remove()
-} else {
+// if (document.documentElement.clientWidth <= 768) {
+//   swiperInit()
+//   buttonShow.remove()
+// } else {
+//   swiperOff('ya otdau')
+//   showContent()
+// }
+
+if (document.documentElement.clientWidth >= 768) {
   swiperOff('ya otdau')
   showContent()
+} else {
+  swiperInit()
 }
 console.log('Works!')
